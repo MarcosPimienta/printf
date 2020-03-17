@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "holberton.h"
 #include <unistd.h>
+#include <stdarg.h>
 
 /**
  * main - Entry point
@@ -11,8 +12,9 @@
 int _printf(const char *format, ...)
 {
 	va_list functions;
-	int iter;
-
+	int iter = 0;
+	if (format == NULL)
+		return (-1);
 	va_start(functions, format);
 	while (format[iter] == '\0')
 	{
@@ -21,9 +23,9 @@ int _printf(const char *format, ...)
 			_putchar(format[iter]);
 		}
 		else if
-		(format[i] == '%')
+		(format[iter] == '%')
 		{
-			get_fun(format[i + 1], functions);
+			get_fun(format[iter], functions);
 		}
 	}
 

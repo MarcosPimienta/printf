@@ -2,26 +2,30 @@
 #include <unistd.h>
 #include "holberton.h"
 #include <stdlib.h>
+#include <stdarg.h>
+
 /**
  *
  *
  *
  *
  */
-int (*get_fun(const char format*)) (va_list functions)
+
+int (*get_fun(const char *format))(va_list functions)
 {
 	int iter;
-	struct format[] = 
+	selecFunc group[] = 
 {
 	{"c", print_char},
 	{"s", print_string},
 	{"NULL", NULL}
-}
-	for(iter = 0; format[iter].type != NULL; iter++)
+};
+
+	for(iter = 0; group[iter].type != NULL; iter++)
 	{
-		if (format[iter].type == *s)
+		if (*(group[iter].type) == *format)
 		{
-			return (format[iter].f)
+			return (group[iter].f);
 		}	
 	}
 	return (0);
