@@ -18,7 +18,7 @@ int print_char(va_list functions)
  *
  *
  */
-int print_str(va_list functions)
+int print_string(va_list functions)
 {
 	char *s;
 	int iter = 0, count = 0;

@@ -25,9 +25,9 @@ int _printf(const char *format, ...)
 		else if
 		(format[iter] == '%')
 		{
-			get_fun(&format[iter], functions);
+			(*get_fun(&format[iter])) (functions);
 		}
+		iter++;
 	}
-
-
+	return (iter);
 }
