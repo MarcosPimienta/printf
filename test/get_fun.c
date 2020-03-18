@@ -10,24 +10,27 @@
  *
  *
  */
-
 int (*get_fun(const char *format))(va_list functions)
 {
-	int iter;
-	selecFunc group[] = 
+ 
+        selecFunc group[] =
 {
-	{"c", print_char},
-	{"s", print_string},
-	{"NULL", NULL}
+        {"c", print_char},
+        {"s", print_string},
+    {"d", print_int},
+    {"i", print_int},
+        {NULL, NULL}
 };
-
-	for(iter = 0; group[iter].type != NULL; iter++)
-	{
-		if (*(group[iter].type) == *format)
-		{
-			return (group[iter].f);
-		}	
-	}
-	return (0);
+ 
+    int igtfn = 0;
+ 
+        while (group[igtfn].type != NULL)
+        {
+                if (*(group[igtfn].type) == *format)
+                {
+                        return (group[igtfn].f);
+                }
+                igtfn++;
+        }
+        return (0);
 }
-
