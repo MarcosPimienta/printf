@@ -1,0 +1,70 @@
+ct 2019" "0.32" "our _printf man page"
+.SH NAME
+.B our printf holberton function
+- We try to build our own printf function.
+.SH SYNOPSIS
+.SH #include "holberton.h"
+.SH int _printf(const char *format, ...);
+.SH our _printf function
+.SH In our _printf function, we use several files to evaluate the different cases or proofs that could be presented at the time of printing what was in format.
+.SH
+.SH DESCRIPTION
+we use the following files to evaluate all cases and apply the concepts acquired during previous C language projects: 
+- holberton.h (prototypes and structure)
+- my_printf.c (base code of our printf function)
+- my_new_fun.c (struct function selects the case)
+- funtions.c (list of functions to meet betty requirements)
+_putchar.c (Print char by char)
+The functions in the _printf() produce output according to a format as described below.
+.SH RETURN VALUE
+Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings)
+If an output error is encountered, a negative value is returned.
+.SH
+.SH FORMAT OF THE FORMAT STRING
+The format string is a character string, beginning and ending in its initial shift state, if any. The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments. Each conversion specification is introduced by the character %, and ends with a conversion specifier. In between there may be (in this order) zero or more flags, an optional minimum field width, an optional precision and an optional length modifier.
+.SH
+.B The specifiers we evaluate:
+.SH  %c
+.SH  %s
+.SH  %%
+.SH  %d
+.SH  %I
+.SH
+.SH EXAMPLES TEST
+we compare with printf function original our own _printf function with next examples:
+.SH
+.SH Examples
+.SH
+.SH _printf("Length:[%d, %i]\n", len, len);
+.SH   printf("Length:[%d, %i]\n", len2, len2);
+.SH _printf("Negative:[%d]\n", -762534);
+.SH   printf("Negative:[%d]\n", -762534);
+.SH _printf("Character:[%c]\n", 'H');
+.SH   printf("Character:[%c]\n", 'H');
+.SH _printf("Unknown:[%r]\n");
+.SH   printf("Unknown:[%r]\n");new messages
+.SH _printf("String:[%s]\n", "I am a string !");
+.SH   printf("String:[%s]\n", "I am a string !");
+.SH _printf("Percent:[%%]\n");
+.SH   printf("Percent:[%%]\n");
+.SH
+.SH Results
+.SH
+.SH Length:[39, 39]
+.SH Length:[39, 39]
+.SH Negative:[-762534]
+.SH Negative:[-762534]
+.SH Character:[H]
+.SH Character:[H]
+.SH Unknown:[%r]
+.SH Unknown:[%r]
+.SH String:[I am a string !]
+.SH String:[I am a string !]
+.SH Percent:[%]
+.SH Percent:[%]
+.SH
+.SH ISSUES
+We have a issue in check #13
+.SH AUTHORS
+Samuel Rojas Coley, Marcos Pimienta
+
