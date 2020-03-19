@@ -1,7 +1,9 @@
-#include <stdio.h>
 #include "holberton.h"
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <limits.h>
+
 /**
  * _printf - prints almost ewverything that it gets sent to
  * @format: pointer that gets data to this script
@@ -25,22 +27,30 @@ int _printf(const char *format, ...)
 			_putchar(format[iptf]);
 			len++;
 			}
-				if (format[iptf] == 'c' || format[iptf] == 's'
-					|| format[iptf] == 'd' || format[iptf] == 'i')
+			if (format[iptf] == 'c' || format[iptf] == 's'
+				|| format[iptf] == 'd' || format[iptf] == 'i')
+			{
 				len = len + (*get_fun(&format[iptf]))(functions);
+			}
+			else
+			{
+				_putchar(format[--iptf]);
+				len = len + 2;
+			}
+
 		}
-					else if (format[iptf] == '%')
-					{
-						_putchar('%');
-						_putchar(format[iptf]);
-						len = len + 2;
-					}
-					else
-					{
-						_putchar(format[iptf]);
-						len++;
-					}
-				iptf++;
+		else if (format[iptf] == '%')
+		{
+			_putchar('%');
+			_putchar(format[iptf]);
+			len = len + 2;
+		}
+		else
+		{
+			_putchar(format[iptf]);
+			len++;
+		}
+		iptf++;
 	}
 	va_end(functions);
 	return (iptf);
