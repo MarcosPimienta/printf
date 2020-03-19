@@ -81,7 +81,7 @@ int putN(unsigned int n, unsigned int base, char *numbers)
 }
 /**
  * print_percent - Print percent symbol
- * @ap: argumnt
+ * @functions: argumnt
  * Return: return the amount of characters
  */
 

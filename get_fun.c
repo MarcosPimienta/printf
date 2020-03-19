@@ -7,13 +7,14 @@
 * get_fun - get functions
 * @format: array of elements
 * @functions: size of the array
+ *@group: structure collections
 * Return: Nothing.
 */
-int get_fun(const char *format, selecFunc group[],va_list functions)
+int get_fun(const char *format, selecFunc group[], va_list functions)
 {
 	int iptf = 0, ist, r = 0, len = 0;
 
-	for ( ;format[iptf]; iptf++)
+	for ( ; format[iptf]; iptf++)
 	{
 		if (format[iptf] == '%')
 		{
@@ -22,7 +23,7 @@ int get_fun(const char *format, selecFunc group[],va_list functions)
 				if (format[iptf + 1]  == group[ist].type[0])
 				{
 					r = group[ist].f(functions);
-					if(r == -1)
+					if (r == -1)
 					{
 						return (-1);
 					}
@@ -30,7 +31,7 @@ int get_fun(const char *format, selecFunc group[],va_list functions)
 					break;
 				}
 			}
-			if(group[ist].type == NULL && format[iptf + 1] != ' ')
+			if (group[ist].type == NULL && format[iptf + 1] != ' ')
 			{
 				if (format[iptf + 1] != '\0')
 				{

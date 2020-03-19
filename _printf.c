@@ -12,7 +12,7 @@
  */
 int _printf(const char *format, ...)
 {
-	
+
 	selecFunc group[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -35,6 +35,6 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	
+
 	return (len);
 }
