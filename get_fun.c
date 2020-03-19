@@ -1,32 +1,53 @@
-#include <stdio.h>
-#include <unistd.h>
 #include "holberton.h"
-#include <stdlib.h>
+#include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <limits.h>
 /**
 * get_fun - get functions
 * @format: array of elements
 * @functions: size of the array
 * Return: Nothing.
 */
-int (*get_fun(const char *format))(va_list functions)
+int get_fun(const char *format, selecFunc group[],va_list functions)
 {
-	selecFunc group[] = {
-	{"c", print_char},
-	{"s", print_string},
-	{"d", print_int},
-	{"i", print_int},
-	{NULL, NULL}
-};
-	int igtfn = 0;
+	int iptf = 0, ist, r = 0, len = 0;
 
-	while (group[igtfn].type != NULL)
+	for ( ;format[iptf]; iptf++)
 	{
-		if (*(group[igtfn].type) == *format)
+		if (format[iptf] == '%')
 		{
-			return (group[igtfn].f);
+			for (ist = 0; group[ist].type != NULL; ist++)
+			{
+				if (format[iptf + 1]  == group[ist].type[0])
+				{
+					r = group[ist].f(functions);
+					if(r == -1)
+					{
+						return (-1);
+					}
+					len += r;
+					break;
+				}
+			}
+			if(group[ist].type == NULL && format[iptf + 1] != ' ')
+			{
+				if (format[iptf + 1] != '\0')
+				{
+					_putchar(format[iptf]);
+					_putchar(format[iptf + 1]);
+					len = len + 2;
+				}
+				else
+				return (-1);
+			}
+			iptf = iptf + 1;
 		}
-		igtfn++;
+		else
+		{
+			_putchar(format[iptf]);
+			len++;
+		}
 	}
-	return (0);
+	return (len);
 }

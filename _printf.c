@@ -12,46 +12,29 @@
  */
 int _printf(const char *format, ...)
 {
+	
+	selecFunc group[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"d", print_int},
+		{"i", print_int},
+		{"%", print_percent},
+		{NULL, NULL}
+		};
+
 	va_list functions;
-	int iptf = 0, len = 0;
+	int len = 0;
 
-	if (format == NULL)
-	return (-1);
-	va_start(functions, format);
-	while (format && format[iptf] != '\0')
+	if (format != NULL)
 	{
-		if (format[iptf] == '%')
-		{
-			if (format[++iptf]  == '%')
-			{
-			_putchar(format[iptf]);
-			len++;
-			}
-			if (format[iptf] == 'c' || format[iptf] == 's'
-				|| format[iptf] == 'd' || format[iptf] == 'i')
-			{
-				len = len + (*get_fun(&format[iptf]))(functions);
-			}
-			else
-			{
-				_putchar(format[--iptf]);
-				len = len + 2;
-			}
-
-		}
-		else if (format[iptf] == '%')
-		{
-			_putchar('%');
-			_putchar(format[iptf]);
-			len = len + 2;
-		}
-		else
-		{
-			_putchar(format[iptf]);
-			len++;
-		}
-		iptf++;
+		va_start(functions, format);
+		len = get_fun(format, group, functions);
+		va_end(functions);
 	}
-	va_end(functions);
-	return (iptf);
+	else
+	{
+		return (-1);
+	}
+	
+	return (len);
 }

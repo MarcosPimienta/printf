@@ -1,6 +1,8 @@
-#include <limits.h>
-#include <stdio.h>
 #include "holberton.h"
+#include <unistd.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <limits.h>
 
 /**
  * main - Entry point
@@ -20,7 +22,8 @@ int main(void)
     addr = (void *)0x7ffe637541f0;
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Negative:[%d]\n", -762534);
+    _printf("Negative:[%d]\n", -1024);
+    _printf("Negative:[%d]\n", 1024);
     printf("Negative:[%d]\n", -762534);
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
@@ -30,6 +33,8 @@ int main(void)
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
+    _printf("Let'see if the cast is correctly done: %c. Did it work?\n", 48);
+    _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
     _printf("String:[%s]\n", "I am a string !");
     printf("String:[%s]\n", "I am a string !");
     _printf("Address:[%p]\n", addr);

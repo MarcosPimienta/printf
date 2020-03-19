@@ -1,6 +1,8 @@
 #include "holberton.h"
-#include <stdlib.h>
+#include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <limits.h>
 /**
 * print_char - prints char at printf
 * @functions: will feed what is called type
@@ -76,4 +78,15 @@ int putN(unsigned int n, unsigned int base, char *numbers)
 	r += putN(n / base, base, numbers);
 	_putchar(numbers[n % base]);
 	return (r);
+}
+/**
+ * print_percent - Print percent symbol
+ * @ap: argumnt
+ * Return: return the amount of characters
+ */
+
+int print_percent(__attribute__((unused))va_list functions)
+{
+	_putchar('%');
+	return (1);
 }
