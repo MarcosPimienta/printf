@@ -7,7 +7,7 @@
 * get_fun - get functions
 * @format: array of elements
 * @functions: size of the array
- *@group: structure collections
+* @group: structure collections
 * Return: Nothing.
 */
 int get_fun(const char *format, selecFunc group[], va_list functions)
