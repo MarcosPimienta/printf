@@ -7,7 +7,6 @@
 /**
  * _printf - prints almost ewverything that it gets sent to
  * @format: pointer that gets data to this script
- * @functions: list functions to the script in a variadic function
  * Return: Always 0
  */
 int _printf(const char *format, ...)
