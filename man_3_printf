@@ -9,7 +9,7 @@ ct 2019" "0.32" "our _printf man page"
 .SH In our _printf function, we use several files to evaluate the different cases or proofs that could be presented at the time of printing what was in format.
 .SH
 .SH DESCRIPTION
-we use the following files to evaluate all cases and apply the concepts acquired during previous C language projects: 
+we use the following files to evaluate all cases and apply the concepts acquired during previous C language projects:
 - holberton.h (prototypes and structure)
 - my_printf.c (base code of our printf function)
 - my_new_fun.c (struct function selects the case)
