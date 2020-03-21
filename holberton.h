@@ -26,8 +26,8 @@ int print_string(va_list functions);
 int get_fun(const char *format, selecFunc group[], va_list functions);
 int print_int(va_list list);
 int putN(unsigned int n, unsigned int base, char *numbers);
+int decToBinary(va_list list);
 int _putchar(char c);
 int print_percent(__attribute__((unused))va_list ap);
-
-
+int binary(unsigned int n);
 #endif
